@@ -2,8 +2,8 @@ class Pulse < Formula
   desc "System health monitoring and cache cleanup for macOS developers"
   homepage "https://github.com/kin0kaze23/pulse"
   url "https://github.com/kin0kaze23/pulse.git",
-      tag:      "v0.1.0-alpha",
-      revision: "361aa87"
+      branch: "phase0-hardening",
+      revision: "8fe119f14ef72b4ced0a1e0e3c45d866dc0319e5"
   license "MIT"
   head "https://github.com/kin0kaze23/pulse.git", branch: "main"
 
