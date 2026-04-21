@@ -11,15 +11,14 @@ class Pulse < Formula
   depends_on xcode: ["15.0", :build]
 
   def install
-    # Build PulseCore and PulseCLI targets only (avoid Pulse app target)
+    # Build pulse binary (release mode)
     system "swift", "build",
-           "--target", "PulseCore",
-           "--target", "PulseCLI",
+           "--product", "pulse",
            "-c", "release",
            "--build-path", buildpath/".build"
 
-    # Find the binary
-    bin.install buildpath/".build/release/PulseCLI" => "pulse"
+    # Install the binary
+    bin.install buildpath/".build/release/pulse"
 
     # Install shell completions
     (zsh_completion/"_pulse").write Utils.safe_popen_read(bin/"pulse", "completion", "zsh")
